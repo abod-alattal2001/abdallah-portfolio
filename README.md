@@ -8,6 +8,12 @@ This simple portfolio template is designed to showcase your past projects, caree
 
 View the [Demo](https://abod-alattal2001.github.io/abdallah-portfolio)).
 
+## 🌐 Live Demo
+
+Check out the live version of the portfolio here:
+
+👉 https://abdallah-alattal-portfolio.netlify.app/
+
 **This template is free to use, and no attribution is required.** You can fork or download this repository to customize it for your own use. Please don't forget to leave a ⭐ if you like this portfolio!
 
 ![screenshot](./src/assets//images/screenshot.png)
