@@ -16,13 +16,14 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 
+// 🌟 مسار الاستيراد الصحيح بناءً على المجلد الخاص بك 🌟
+import { useTheme } from "../context/ThemeContext";
+
 const drawerWidth = 240;
 const navItems = [['Expertise', 'expertise'], ['History', 'history'], ['Projects', 'projects'], ['Contact', 'contact']];
 
-function Navigation({parentToChild, modeChange}: any) {
-
-  const {mode} = parentToChild;
-
+function Navigation() {
+  const { theme, toggleTheme } = useTheme();
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
 
@@ -38,9 +39,7 @@ function Navigation({parentToChild, modeChange}: any) {
         setScrolled(scrolled);
       }
     };
-
     window.addEventListener('scroll', handleScroll);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -51,15 +50,14 @@ function Navigation({parentToChild, modeChange}: any) {
     const expertiseElement = document.getElementById(section);
     if (expertiseElement) {
       expertiseElement.scrollIntoView({ behavior: 'smooth' });
-      console.log('Scrolling to:', expertiseElement);  // Debugging: Ensure the element is found
     } else {
-      console.error('Element with id "expertise" not found');  // Debugging: Log error if element is not found
+      console.error('Element with id "expertise" not found');
     }
   };
 
   const drawer = (
     <Box className="navigation-bar-responsive" onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <p className="mobile-menu-top"><ListIcon/>Menu</p>
+      <p className="mobile-menu-top"><ListIcon />Menu</p>
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -76,8 +74,17 @@ function Navigation({parentToChild, modeChange}: any) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar component="nav" id="navigation" className={`navbar-fixed-top${scrolled ? ' scrolled' : ''}`}>
+      <AppBar
+        component="nav"
+        id="navigation"
+        className={`navbar-fixed-top${scrolled ? ' scrolled' : ''}`}
+        sx={{
+          background: 'var(--card-bg)',
+          borderBottom: '1px solid var(--border-color)'
+        }}
+      >
         <Toolbar className='navigation-bar'>
+          {/* 1. زر القائمة للموبايل (على اليسار) */}
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -87,18 +94,31 @@ function Navigation({parentToChild, modeChange}: any) {
           >
             <MenuIcon />
           </IconButton>
-          {mode === 'dark' ? (
-            <LightModeIcon onClick={() => modeChange()}/>
-          ) : (
-            <DarkModeIcon onClick={() => modeChange()}/>
-          )}
+
+          {/* 2. أزرار التنقل للشاشات الكبيرة (على اليسار بجانب زر الموبايل) */}
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item[0]} onClick={() => scrollToSection(item[1])} sx={{ color: '#fff' }}>
+              <Button key={item[0]} onClick={() => scrollToSection(item[1])} sx={{ color: 'var(--text-color)' }}>
                 {item[0]}
               </Button>
             ))}
           </Box>
+
+          {/* 3. 🔥 هذا هو العنصر السحري الذي سيدفع ما بعده إلى أقصى اليمين 🔥 */}
+          <Box sx={{ flexGrow: 1 }} />
+
+          {/* 4. أيقونة تبديل الثيم (الآن ستصبح في أقصى اليمين) */}
+          {theme === 'dark' ? (
+            <LightModeIcon
+              onClick={toggleTheme}
+              sx={{ cursor: "pointer", color: "var(--text-color)" }}
+            />
+          ) : (
+            <DarkModeIcon
+              onClick={toggleTheme}
+              sx={{ cursor: "pointer", color: "var(--text-color)" }}
+            />
+          )}
         </Toolbar>
       </AppBar>
       <nav>
@@ -107,7 +127,7 @@ function Navigation({parentToChild, modeChange}: any) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },

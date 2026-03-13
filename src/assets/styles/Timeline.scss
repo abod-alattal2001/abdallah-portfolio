@@ -1,38 +1,89 @@
-.vertical-timeline span {
-    color: white;
-    font-family: 'Courier Prime', monospace;
+.timeline-container {
+    padding: 5% 10%;
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    background: var(--background);
+
+    h1 {
+        color: #7aa2ff;
+        text-align: center;
+        margin-bottom: 50px;
+        font-size: 38px;
+    }
 }
 
-.vertical-timeline p {
-    color: rgb(39, 40, 34);
+/* الخط العمودي */
+
+.vertical-timeline {
+
+    &::before {
+        background: #7aa2ff !important;
+    }
 }
 
-.vertical-timeline-element p {
-    color: rgb(39, 40, 34);
+/* عناصر التايملاين */
+
+.vertical-timeline-element {
+
+    h3,
+    h4,
+    p,
+    span {
+        color: var(--text-color);
+    }
+
+    .vertical-timeline-element-date {
+        color: #7aa2ff;
+        font-weight: bold;
+    }
+
+    .vertical-timeline-element-content {
+
+        /* إزالة لون المكتبة الافتراضي */
+        background: var(--card-bg) !important;
+
+        border: 1px solid var(--border-color);
+
+        border-radius: 12px;
+
+        box-shadow: 0 6px 25px rgba(122,162,255,0.2);
+
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 45px rgba(122,162,255,0.35);
+        }
+    }
+
+    /* السهم الصغير للكرت */
+
+    .vertical-timeline-element-content-arrow {
+        border-right: 7px solid var(--card-bg) !important;
+    }
 }
 
-.vertical-timeline-element h3 {
-    color: rgb(39, 40, 34);
+/* الأيقونات */
+
+.vertical-timeline-element-icon {
+
+    background: #7aa2ff !important;
+
+    box-shadow: 0 0 20px rgba(122,162,255,0.6);
+
+    svg {
+        color: white;
+    }
 }
 
-.vertical-timeline-element h4 {
-    color: rgb(39, 40, 34);
-}
-
-.vertical-timeline-element span {
-    color: rgb(39, 40, 34);
-}
-
-.vertical-timeline-element .vertical-timeline-element-date {
-    color: white;
-}
-
-.svg-inline--fa {
-    color: white;
-}
+/* Responsive */
 
 @media screen and (max-width: 1170px) {
-    .vertical-timeline-element .vertical-timeline-element-date {
-        color: rgb(39, 40, 34);
+
+    .vertical-timeline-element
+    .vertical-timeline-element-date {
+
+        color: #7aa2ff;
     }
+
 }

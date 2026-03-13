@@ -8,60 +8,78 @@ import '../assets/styles/Timeline.scss'
 
 function Timeline() {
   return (
-    <div id="history">
+    <div id="history" className="timeline-container">
       <div className="items-container">
-        <h1>Career History</h1>
+        <h1>Professional Experience</h1>
         <VerticalTimeline>
+
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            contentStyle={{ background: 'white', color: 'rgb(39, 40, 34)' }}
-            contentArrowStyle={{ borderRight: '7px solid  white' }}
-            date="2022 - present"
-            iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
+            contentStyle={{ background: '#0f172a', color: 'white', border: '1px solid #7aa2ff' }}
+            contentArrowStyle={{ borderRight: '7px solid #7aa2ff' }}
+            date="2025 – Present"
+            iconStyle={{ background: '#7aa2ff', color: 'white', boxShadow: '0 0 15px #7aa2ff' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
-            <h3 className="vertical-timeline-element-title">Technology Consultant</h3>
-            <h4 className="vertical-timeline-element-subtitle">Dallas, TX</h4>
+            <h3 className="vertical-timeline-element-title">AI Officer</h3>
+            <h4 className="vertical-timeline-element-subtitle">NatHealth – Jordan</h4>
             <p>
-              Full-stack Web Development, GenAI/LLM, Project Management, Business Development
+              Designed and deployed production-level AI fraud detection systems 
+              integrating ML models with LLM reasoning layers. Built intelligent 
+              invoice validation pipelines (OCR + entity recognition) and automated 
+              risk monitoring systems.
             </p>
           </VerticalTimelineElement>
+
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            date="2020 - 2022"
-            iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
+            date="2024 – 2025"
+            contentStyle={{ background: '#0f172a', color: 'white', border: '1px solid #7aa2ff' }}
+            contentArrowStyle={{ borderRight: '7px solid #7aa2ff' }}
+            iconStyle={{ background: '#7aa2ff', color: 'white', boxShadow: '0 0 15px #7aa2ff' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
-            <h3 className="vertical-timeline-element-title">Full Stack Engineer</h3>
-            <h4 className="vertical-timeline-element-subtitle">Laie, HI</h4>
+            <h3 className="vertical-timeline-element-title">AI & Robotics Integration Engineer</h3>
+            <h4 className="vertical-timeline-element-subtitle">Cyber Robot – Industrial Robotics</h4>
             <p>
-              Frontend Development, Backend Development, User Experience, Team Leading
+              Integrated AI systems into industrial robotic platforms (FR5 / FR10). 
+              Developed vision-guided calligraphy robots, LLM-powered coffee serving robots, 
+              and safety-aware robotic systems using real-time human detection.
             </p>
           </VerticalTimelineElement>
+
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            date="2021 - 2021"
-            iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
+            date="2023 – 2024"
+            contentStyle={{ background: '#0f172a', color: 'white', border: '1px solid #7aa2ff' }}
+            contentArrowStyle={{ borderRight: '7px solid #7aa2ff' }}
+            iconStyle={{ background: '#7aa2ff', color: 'white', boxShadow: '0 0 15px #7aa2ff' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
-            <h3 className="vertical-timeline-element-title">Staff Engineer Intern</h3>
-            <h4 className="vertical-timeline-element-subtitle">Laie, HI</h4>
+            <h3 className="vertical-timeline-element-title">Founder & Technical Lead</h3>
+            <h4 className="vertical-timeline-element-subtitle">CSS – Smart Systems & Education</h4>
             <p>
-              Full-stack Development, API Development, User Experience
+              Led development of embedded systems and smart automation solutions 
+              integrating AI, robotics, and programmable electronics for real-world applications.
             </p>
           </VerticalTimelineElement>
+
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            date="2020 - 2020"
-            iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
+            date="2020 – 2024"
+            contentStyle={{ background: '#0f172a', color: 'white', border: '1px solid #7aa2ff' }}
+            contentArrowStyle={{ borderRight: '7px solid #7aa2ff' }}
+            iconStyle={{ background: '#7aa2ff', color: 'white', boxShadow: '0 0 15px #7aa2ff' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
-            <h3 className="vertical-timeline-element-title">Data Analyst Intern</h3>
-            <h4 className="vertical-timeline-element-subtitle">Tokyo, Japan</h4>
+            <h3 className="vertical-timeline-element-title">B.Sc. in Artificial Intelligence</h3>
+            <h4 className="vertical-timeline-element-subtitle">Zarqa University</h4>
             <p>
-              Automation, Data Governance, Statistical Analysis
+              Specialized in machine learning, deep learning, computer vision, 
+              and intelligent systems design.
             </p>
           </VerticalTimelineElement>
+
         </VerticalTimeline>
       </div>
     </div>

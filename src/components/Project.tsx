@@ -1,8 +1,4 @@
-import React from "react";
-import mock01 from '../assets/images/mock01.png';
-import mock02 from '../assets/images/mock02.png';
-import mock03 from '../assets/images/mock03.png';
-import mock04 from '../assets/images/mock04.png';
+import React, { useState } from "react";
 import mock05 from '../assets/images/mock05.png';
 import mock06 from '../assets/images/mock06.png';
 import mock07 from '../assets/images/mock07.png';
@@ -11,63 +7,87 @@ import mock09 from '../assets/images/mock09.png';
 import mock10 from '../assets/images/mock10.png';
 import '../assets/styles/Project.scss';
 
+interface ProjectCardProps {
+    image: string;
+    title: string;
+    description: string;
+    tech: string;
+}
+
 function Project() {
-    return(
-    <div className="projects-container" id="projects">
-        <h1>Personal Projects</h1>
-        <div className="projects-grid">
-            <div className="project">
-                <a href="https://www.filmate.club/" target="_blank" rel="noreferrer"><img src={mock10} className="zoom" alt="thumbnail" width="100%"/></a>
-                <a href="https://www.filmate.club/" target="_blank" rel="noreferrer"><h2>Filmate AI</h2></a>
-                <p>Developed movie finder app with semantic search and sentiment analysis using OpenAI GPT-3.5 Turbo, Qdrant, React, and Flask.</p>
+    const projects: ProjectCardProps[] = [
+        {
+            image: mock09,
+            title: "AI Coffee Serving Robot",
+            description: "Built an intelligent robotic coffee-serving system using LLM-based interaction and computer vision safety monitoring to prevent pouring when human hands are detected near the cup.",
+            tech: "Python • Computer Vision • LLM • Robotics • Safety AI"
+        },
+        {
+            image: mock10,
+            title: "Arabic Calligraphy Robot – FR5 / FR10",
+            description: "Developed motion control and AI software for industrial FAIRINO FR5/FR10 robots to convert digital Arabic calligraphy into precise robotic handwriting.",
+            tech: "Robotics • Motion Control • Industrial Automation • AI"
+        },
+        {
+            image: mock06,
+            title: "AI-Powered Smart Elevator System",
+            description: "Built an intelligent elevator prototype with voice commands and facial recognition. The system recognizes returning users and predicts their destination floor using behavioral history.",
+            tech: "Python • Computer Vision • Speech Recognition • Embedded Systems"
+        },
+        {
+            image: mock07,
+            title: "AI Fraud Detection & Invoice Intelligence",
+            description: "Developed a machine learning system for financial fraud detection combining classification models with LLM reasoning to detect anomalies in invoices and financial documents.",
+            tech: "Machine Learning • LLM • Data Analysis • Python"
+        },
+        {
+            image: mock08,
+            title: "Physical XO AI Robot",
+            description: "Designed a real-world robotic Tic-Tac-Toe system where users play against an AI agent controlling the robot to execute game moves on a physical board.",
+            tech: "AI Algorithms • Robotics • Hardware Integration"
+        },
+        {
+            image: mock05,
+            title: "Hand Gesture Mouse Control System",
+            description: "Developed a computer vision system enabling users to control the mouse using hand gestures captured through a webcam for touchless interaction.",
+            tech: "Python • OpenCV • Computer Vision • Hand Tracking"
+        },
+    ];
+
+    const [selectedProject, setSelectedProject] = useState<ProjectCardProps | null>(null);
+
+    return (
+        <div className="projects-container" id="projects">
+            <h1>Applied AI & Robotics Projects</h1>
+
+            <div className="projects-grid">
+                {projects.map((proj, index) => (
+                    <div
+                        key={index}
+                        className="project"
+                        onClick={() => setSelectedProject(proj)}
+                    >
+                        <img src={proj.image} className="zoom" alt={proj.title} />
+                        <h2>{proj.title}</h2>
+                        <p>{proj.description.substring(0, 100)}...</p>
+                        <p className="tech">{proj.tech}</p>
+                    </div>
+                ))}
             </div>
-            <div className="project">
-                <a href="https://yujisatojr.itch.io/highspeedchase" target="_blank" rel="noreferrer"><img src={mock09} className="zoom" alt="thumbnail" width="100%"/></a>
-                <a href="https://yujisatojr.itch.io/highspeedchase" target="_blank" rel="noreferrer"><h2>High Speed Chase</h2></a>
-                <p>Designed, developed, and launched a 3D multiplayer racing game with C# and Unity. This is available on Itch.io for gamers worldwide to enjoy.</p>
-            </div>
-            <div className="project">
-                <a href="https://yujisatojr.itch.io/spacecraft" target="_blank" rel="noreferrer"><img src={mock08} className="zoom" alt="thumbnail" width="100%"/></a>
-                <a href="https://yujisatojr.itch.io/spacecraft" target="_blank" rel="noreferrer"><h2>Astro Raiders</h2></a>
-                <p>Developed and released a 2D shooting game with C# and Unity. This project is hosted on the Itch.io public marketplace.</p>
-            </div>
-            <div className="project">
-                <a href="https://www.datumlearn.com/" target="_blank" rel="noreferrer"><img src={mock07} className="zoom" alt="thumbnail" width="100%"/></a>
-                <a href="https://www.datumlearn.com/" target="_blank" rel="noreferrer"><h2>Datum: Integrated Learning Platform</h2></a>
-                <p>This is an online educational platform that provides high-quality, data science-focused learning resources in the Japanese language. I created the entire platform from scratch using Ruby on Rails.</p>
-            </div>
-            <div className="project">
-                <a href="http://www.wemanage.jp/" target="_blank" rel="noreferrer"><img src={mock06} className="zoom" alt="thumbnail" width="100%"/></a>
-                <a href="http://www.wemanage.jp/" target="_blank" rel="noreferrer"><h2>WeManage: Real Estate Asset Management</h2></a>
-                <p>This mobile application allows realtors in Japan to securely manage their property information and view future income predictions. This app is built with Ruby on Rails and JavaScript.</p>
-            </div>
-            <div className="project">
-                <a href="https://www.byuh.edu/covid-19-case-management" target="_blank" rel="noreferrer"><img src={mock05} className="zoom" alt="thumbnail" width="100%"/></a>
-                <a href="https://www.byuh.edu/covid-19-case-management" target="_blank" rel="noreferrer"><h2>COVID-19 Case Management</h2></a>
-                <p>Built official charts for COVID/vaccination tracking for an educational institution using JavaScript and the Google Sheets API v4. The dashboard served the university's leadership in their decision-making processes.</p>
-            </div>
-            <div className="project">
-                <a href="https://github.com/yujisatojr/multi-reg-analysis" target="_blank" rel="noreferrer"><img src={mock04} className="zoom" alt="thumbnail" width="100%"/></a>
-                <a href="https://github.com/yujisatojr/multi-reg-analysis" target="_blank" rel="noreferrer"><h2>Multiple Regression Property Analysis</h2></a>
-                <p>Analyzed the real estate market in Japan and predicted property prices by implementing statistical methods such as OLS and multi-regression analysis. This project leveraged Python and various libraries such as Pandas, NumPy, Matplotlib, and Scikit-Learn.</p>
-            </div>
-            <div className="project">
-                <a href="https://holokai.byuh.edu/programs-of-study" target="_blank" rel="noreferrer"><img src={mock03} className="zoom" alt="thumbnail" width="100%"/></a>
-                <a href="https://holokai.byuh.edu/programs-of-study" target="_blank" rel="noreferrer"><h2>Programs of Study</h2></a>
-                <p>Designed and developed a custom component for a CMS-based platform (e.g., 'Brightspot') using Java, Handlebars, and LESS. University students can find their majors of interest through this module.</p>
-            </div>
-            <div className="project">
-                <a href="https://hookele.byuh.edu/transfer-evaluation-guidelines-and-matrix" target="_blank" rel="noreferrer"><img src={mock02} className="zoom" alt="thumbnail" width="100%"/></a>
-                <a href="https://hookele.byuh.edu/transfer-evaluation-guidelines-and-matrix" target="_blank" rel="noreferrer"><h2>Transfer Evaluation Matrix</h2></a>
-                <p>Created an interactive CSV table generator with Java, Handlebars, and LESS. This project helps transfer students to quickly identify eligible credits.</p>
-            </div>
-            <div className="project">
-                <a href="https://github.com/yujisatojr/submeowrine" target="_blank" rel="noreferrer"><img src={mock01} className="zoom" alt="thumbnail" width="100%"/></a>
-                <a href="https://github.com/yujisatojr/submeowrine" target="_blank" rel="noreferrer"><h2>Submeowrine</h2></a>
-                <p>Developed and released an Android mobile application using Java and Android Studio that runs a 2D shooting game.</p>
-            </div>
+
+            {/* Fullscreen Popup */}
+            {selectedProject && (
+                <div className="modal-overlay" onClick={() => setSelectedProject(null)}>
+                    <div className="modal-content" onClick={e => e.stopPropagation()}>
+                        <button className="close-btn" onClick={() => setSelectedProject(null)}>×</button>
+                        <img src={selectedProject.image} alt={selectedProject.title} />
+                        <h2>{selectedProject.title}</h2>
+                        <p>{selectedProject.description}</p>
+                        <p className="tech">{selectedProject.tech}</p>
+                    </div>
+                </div>
+            )}
         </div>
-    </div>
     );
 }
 

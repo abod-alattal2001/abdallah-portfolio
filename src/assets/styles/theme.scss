@@ -1,0 +1,22 @@
+// src/assets/styles/theme.scss
+
+:root {
+  /* Light Mode (الوضع الافتراضي) */
+  --bg-color: #ffffff;
+  --card-bg: #f8fafc;
+  --text-color: #0f172a;
+  --secondary-text: #475569;
+  --primary-color: #4f46e5;
+  --border-color: #e2e8f0;
+}
+
+// 🌟 التأكد من أن الاسم مطابق لما يضيفه الـ JavaScript
+body.dark-mode {
+  /* Dark Mode */
+  --bg-color: #0c0f1a;
+  --card-bg: #141a2b;
+  --text-color: #f1f5f9;
+  --secondary-text: #cbd5e1;
+  --primary-color: #7aa2ff;
+  --border-color: rgba(122,162,255,0.3);
+}

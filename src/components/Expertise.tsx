@@ -1,87 +1,115 @@
 import React from "react";
 import '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReact, faDocker, faPython } from '@fortawesome/free-brands-svg-icons';
+import { faRobot, faMicrochip, faCogs } from '@fortawesome/free-solid-svg-icons';
 import Chip from '@mui/material/Chip';
 import '../assets/styles/Expertise.scss';
 
-const labelsFirst = [
-    "React",
-    "TypeScript",
-    "JavaScript",
-    "HTML5",
-    "CSS3",
-    "SASS",
-    "Flask",
+// قوائم المهارات التقنية
+const aiStack = [
     "Python",
-    "SQL",
-    "PostgreSQL",
-    "Postman"
-];
-
-const labelsSecond = [
-    "Git",
-    "GitHub Actions",
-    "Docker",
-    "AWS",
-    "Azure",
-    "Linux",
-    "Snowflake",
-    "Pandas",
-    "Selenium",
-];
-
-const labelsThird = [
-    "OpenAI",
-    "Groq",
+    "PyTorch",
+    "TensorFlow",
+    "OpenCV",
+    "YOLO",
+    "LLM Integration",
     "LangChain",
-    "Qdrant",
-    "Hugging Face",
     "LlamaIndex",
-    "Streamlit",
+    "Vector Databases",
+    "OCR",
+    "Anomaly Detection",
+    "Deep Learning",
+    "Model Deployment"
+];
+
+const roboticsStack = [
+    "ROS",
+    "Robot Kinematics",
+    "Motion Planning",
+    "Industrial Robots (FR5 / FR10)",
+    "Perception-to-Motion Pipelines",
+    "Sensor Fusion",
+    "Human-Robot Interaction",
+    "Safety Systems",
+    "Real-Time Control"
+];
+
+const industrialStack = [
+    "PLC Programming",
+    "CNC Systems",
+    "Industrial Automation",
+    "Embedded Systems",
+    "Arduino",
+    "Raspberry Pi",
+    "Motor Drivers",
+    "Load Cells",
+    "Industrial Sensors",
+    "Electrical Control Panels",
+    "Linux Systems",
+    "System Integration"
 ];
 
 function Expertise() {
     return (
     <div className="container" id="expertise">
         <div className="skills-container">
-            <h1>Expertise</h1>
+            <h1>Core Expertise</h1>
             <div className="skills-grid">
+                
+                {/* قسم الذكاء الاصطناعي */}
                 <div className="skill">
-                    <FontAwesomeIcon icon={faReact} size="3x"/>
-                    <h3>Full Stack Web Development</h3>
-                    <p>I have built a diverse array of web applications from scratch using modern technologies such as React and Flask. I have a strong proficiency in the SDLC process and frontend + backend development.</p>
+                    <FontAwesomeIcon icon={faMicrochip} size="3x"/>
+                    <h3>Artificial Intelligence Systems</h3>
+                    <p>
+                        Design and deployment of production-level AI systems including
+                        computer vision pipelines, anomaly detection models,
+                        and LLM-driven reasoning architectures. Experienced in
+                        integrating AI into real-world robotic and industrial environments.
+                    </p>
                     <div className="flex-chips">
-                        <span className="chip-title">Tech stack:</span>
-                        {labelsFirst.map((label, index) => (
+                        <span className="chip-title">Technologies:</span>
+                        {aiStack.map((label, index) => (
                             <Chip key={index} className='chip' label={label} />
                         ))}
                     </div>
                 </div>
 
+                {/* قسم الروبوتات */}
                 <div className="skill">
-                    <FontAwesomeIcon icon={faDocker} size="3x"/>
-                    <h3>DevOps & Automation</h3>
-                    <p>Once the application is built, I help clients set up DevOps testing, CI/CD pipelines, and deployment automation to support the successful Go-Live.</p>
+                    <FontAwesomeIcon icon={faRobot} size="3x"/>
+                    <h3>Robotics & Intelligent Integration</h3>
+                    <p>
+                        AI-to-robot integration using ROS-based architectures.
+                        Development of vision-guided robotic systems including
+                        calligraphy robots, AI-powered coffee serving robots,
+                        and interactive XO game robots with real-time execution.
+                    </p>
                     <div className="flex-chips">
-                        <span className="chip-title">Tech stack:</span>
-                        {labelsSecond.map((label, index) => (
+                        <span className="chip-title">Technologies:</span>
+                        {roboticsStack.map((label, index) => (
                             <Chip key={index} className='chip' label={label} />
                         ))}
                     </div>
                 </div>
 
+                {/* قسم الأتمتة الصناعية */}
                 <div className="skill">
-                    <FontAwesomeIcon icon={faPython} size="3x"/>
-                    <h3>GenAI & LLM</h3>
-                    <p>Stay relevant in the market by leveraging the latest AI models in your projects. I have professional experience building enterprise grade GenAI-enabled solutions to empower intelligent decision making.</p>
+                    <FontAwesomeIcon icon={faCogs} size="3x" />
+                    <h3>Industrial Automation & Embedded Systems</h3>
+                    <p>
+                        End-to-end industrial system development combining hardware,
+                        embedded programming, and automation control. Experience
+                        building CNC machines, PLC-controlled production lines,
+                        and AI-powered safety monitoring systems.
+                    </p>
                     <div className="flex-chips">
-                        <span className="chip-title">Tech stack:</span>
-                        {labelsThird.map((label, index) => (
+                        <span className="chip-title">Technologies:</span>
+                        {industrialStack.map((label, index) => (
                             <Chip key={index} className='chip' label={label} />
                         ))}
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

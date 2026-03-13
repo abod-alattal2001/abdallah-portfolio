@@ -1,49 +1,188 @@
+/* ==============================
+   Projects Container
+============================== */
 .projects-container {
     display: flex;
     flex-direction: column;
-    padding: 5% 10%;
-    text-align: left;
-}
-  
-.projects-container .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 50px;
-}
-  
-.projects-container .projects-grid .project {
-    text-align: left;
-}
-  
-.project h2:hover {
-    text-decoration: underline;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
-}
-  
-.zoom {
-    border-radius: 5px;
-    transition: transform .2s;
-    margin: 0 auto;
-}
-  
-.zoom:hover {
-    transform: scale(1.05);
+    padding: 6% 12%;
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--background);
+    min-height: 100vh;
 }
 
-@media screen {
-    @media (max-width: 700px) {
-        .projects-container {
-            display: block;
-            padding-left: 5%;
-            padding-right: 5%;
-        }
-  
-        .projects-container .projects-grid {
-            display: block;
-        }
-      
-        .projects-container .projects-grid .project {
-            padding-bottom: 5%;
-        }
+.projects-container h1{
+    margin-bottom: 50px;
+    color: #7aa2ff;
+    font-size: 36px;
+    text-align: center;
+}
+
+/* ==============================
+   Grid Layout
+============================== */
+.projects-container .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 40px;
+}
+
+/* ==============================
+   Project Card
+============================== */
+.project {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.project:hover{
+    transform: translateY(-6px);
+    border-color: #7aa2ff;
+    box-shadow: 0 12px 30px rgba(122,162,255,0.25);
+}
+
+/* ==============================
+   Image Styling
+============================== */
+.project img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.35s ease;
+}
+
+.project:hover img{
+    transform: scale(1.04);
+}
+
+/* ==============================
+   Title & Hover
+============================== */
+.project h2{
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    transition: color .2s ease;
+}
+
+.project h2:hover{
+    color: #7aa2ff;
+}
+
+/* ==============================
+   Description
+============================== */
+.project p{
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--secondary-text);
+}
+
+/* ==============================
+   Technologies
+============================== */
+.tech{
+    margin-top: 12px;
+    font-size: 13px;
+    color: #7aa2ff;
+    font-weight: 500;
+}
+
+/* ==============================
+   Zoom Effect
+============================== */
+.zoom{
+    transition: transform .35s ease;
+}
+
+/* ==============================
+   Fullscreen Modal
+============================== */
+.modal-overlay {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity:0;} 
+    to {opacity:1;}
+}
+
+.modal-content {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    text-align: center;
+    position: relative;
+    border: 1px solid var(--border-color);
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+    color: #7aa2ff;
+}
+
+.modal-content p {
+    color: var(--secondary-text);
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.modal-content .tech {
+    color: #7aa2ff;
+    font-weight: 500;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* ==============================
+   Responsive
+============================== */
+@media (max-width: 700px){
+
+    .projects-container{
+        padding: 10% 6%;
+    }
+
+    .projects-container .projects-grid{
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 }
