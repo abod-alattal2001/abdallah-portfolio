@@ -37,6 +37,29 @@
   transform: translateY(-3px);
 }
 
+.contact-input-group {
+  display: flex;
+  gap: 15px;
+}
+
+.contact-type-select {
+  width: 110px; /* عرض ثابت للقائمة المنسدلة */
+}
+
+.contact-info-input {
+  flex: 1; /* يجعل حقل الإدخال يأخذ باقي المساحة المتوفرة */
+}
+
+/* تعديل للهواتف لضمان ظهور الحقول بشكل عمودي إذا كانت الشاشة صغيرة جداً */
+@media (max-width: 480px) {
+  .contact-input-group {
+    flex-direction: column;
+  }
+  .contact-type-select {
+    width: 100%;
+  }
+}
+
 /* HEADER */
 
 .contact_wrapper h1 {
